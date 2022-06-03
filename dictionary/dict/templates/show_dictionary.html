@@ -1,0 +1,88 @@
+ 
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            margin: 7px;
+            padding: 0;
+
+        }
+
+        .container {
+            border-top: 1px solid black;
+            height: auto;
+            margin: 20px;
+            width: auto;
+            /* border-bottom: 2px solid black; */
+            padding: 38px;
+
+        }
+
+        .headword {
+            margin: 5px 0;
+            font-size: 36px;
+            color: black;
+            font-weight: 400;
+
+        }
+
+        .type {
+            font-size: 14px;
+            font-weight: bold;
+            font-style: italic;
+
+        }
+
+        .mean {
+            margin-top: 10px;
+            font-size: 18px;
+            line-height: 1;
+            font-weight: bolder;
+            color: #1d2a57;
+        }
+    </style>
+</head>
+
+<body>
+ 
+  {% for i in data %}
+    <div class="container">
+
+        <h1 class="headword"> {{i.key}}</h1>
+
+        <p class="type"> {{i.type}}</p>
+
+        <p class="mean">{{i.mean}}</p>
+
+        <p class="sunonym">synonyms: {{i.synonym}}</p>
+
+        <p class="antonym">Antonyms: {{i.antonym}}</p>
+        <p> Example: </p>
+        <p class="example"> {{i.example }}</p>
+       
+    </div>
+
+
+    {% endfor %}  
+
+    <script>
+
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+
+        }
+
+
+    </script>
+</body>
+
+</html>
