@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+
+{%block content%}
+
+<div class="container">
+
+    <h1>Add Meaning</h1>
+
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+
+            <input type="text" class="form-control" name="key" id="key" placeholder="enter headword">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="type" id="type" placeholder="enter type">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="mean" id="mean" placeholder="enter mean">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="synonym" id="synonym" placeholder="enter synonym">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="antonym" id="antonym" placeholder="enter antonym">
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" name="example" id="example" placeholder="enter example"></textarea>
+
+        </div>
+        <input type="submit" class="btn btn-primary" name="submit" id="submit" value="submit">
+
+
+
+
+    </form>
+
+</div>
+
+{% endblock %}

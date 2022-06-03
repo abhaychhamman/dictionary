@@ -13,4 +13,6 @@ from .  import views
 urlpatterns = [
     path("dict",views.dictionary,name="dictionary"),
     path("show_dict",views.show_dict,name="show_dict"),
+    path("Home",views.index,name="show_dict"),
+    path("save",views.save_data,name="save"),
 ]

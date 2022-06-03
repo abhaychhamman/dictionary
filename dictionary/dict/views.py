@@ -1,9 +1,9 @@
 import imp
 from django.shortcuts import render
-from django.http import HttpResponse
-
+from django.http import HttpResponse,JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from dict.models import Dictionary
-
+import json
 # Create your views here.
 
 def dictionary(request):
@@ -12,6 +12,11 @@ def dictionary(request):
         b.save()
         print("add successfully meaning")
 
+    return render(request,"add_meaning.html")
+
+
+def index(request):
+     
     return render(request,"index.html")
 
 
@@ -24,5 +29,29 @@ def show_dict(request):
     
 
     return render(request,"show_dictionary.html",context=context)
+
+@csrf_exempt
+def save_data(request):
+
+    if request.method == "POST":
+
+        print("hellowkdsjakg")
+        res=Dictionary.objects.get(key=request.POST['key'])
+         
+        print(res.mean)
+        result={
+            "key":res.key,
+            "mean":res.mean,
+            "type":res.type,
+            "synonym":res.synonym,
+            "antonym":res.antonym,
+            "example":res.example
+        }
+         
+        
+
+        return JsonResponse({'status': result})
+    else:
+        return JsonResponse({"status": 'fail'})
 
 

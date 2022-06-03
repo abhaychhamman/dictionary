@@ -1,61 +1,13 @@
+{% extends 'index.html' %}
+
+{%block content%}
  
-<!DOCTYPE html>
+ <div id="box">
 
-<html>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
-    <style>
-        * {
-            margin: 7px;
-            padding: 0;
 
-        }
-
-        .container {
-            border-top: 1px solid black;
-            height: auto;
-            margin: 20px;
-            width: auto;
-            /* border-bottom: 2px solid black; */
-            padding: 38px;
-
-        }
-
-        .headword {
-            margin: 5px 0;
-            font-size: 36px;
-            color: black;
-            font-weight: 400;
-
-        }
-
-        .type {
-            font-size: 14px;
-            font-weight: bold;
-            font-style: italic;
-
-        }
-
-        .mean {
-            margin-top: 10px;
-            font-size: 18px;
-            line-height: 1;
-            font-weight: bolder;
-            color: #1d2a57;
-        }
-    </style>
-</head>
-
-<body>
- 
   {% for i in data %}
-    <div class="container">
+    <div class="cont" id="cont">
 
         <h1 class="headword"> {{i.key}}</h1>
 
@@ -71,18 +23,51 @@
        
     </div>
 
-
     {% endfor %}  
+</div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script>
-
-        if (window.history.replaceState) {
-            window.history.replaceState(null, null, window.location.href);
-
-        }
-
-
+      let keys = document.getElementById('headword')
+      let cont = document.getElementById('cont')
+      let box = document.getElementById('box')
+      if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+  
+      }
+  
+  
+  
+      $('#search').click(function () {
+  
+  
+  
+        my_data = { key: keys.value };
+        $.ajax({
+  
+          url: "{% url 'save' %}",
+          method: "POST",
+          data: my_data,
+          success: function (data) {
+         
+            console.log(data.status)
+            box.innerHTML = `<div class="cont" id="cont">
+              <h1 class="headword"> ${data.status.key}</h1>
+              <p class="type">  ${data.status.type}</p>
+              <p class="mean"> ${data.status.mean}</p>
+              <p class="sunonym">synonyms: ${data.status.synonym}</p>
+              <p class="antonym">Antonyms:  ${data.status.antonym}</p
+              <p> Example: </p
+              <p class="example">  ${data.status.example}</p>
+              </div>`
+          }
+        })
+  
+      })
+  
+  
+  
     </script>
-</body>
 
-</html>
+ 
+    {% endblock %}
