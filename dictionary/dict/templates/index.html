@@ -4,125 +4,133 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>akdjgajdg</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- CSS only -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="{% static '/bootstrap.min.css' %}">
-  <style>
-    .form-control {
-
-      margin: 30px;
-    }
-
-    textarea {
-
-      height: 150px;
-    }
-
-    nav {
-
-      height: 67px;
-      text-transform: capitalize;
-    }
-
-    .btn {
-
-      height: 40px;
-      margin: 30px;
-    }
-
-
-    .cont {
-      border-top: 1px solid black;
-      height: auto;
-      margin: 20px;
-      width: auto;
-      /* border-bottom: 2px solid black; */
-      padding: 38px;
-
-    }
-
-    .headword {
-      margin: 5px 0;
-      font-size: 36px;
-      color: black;
-      font-weight: 400;
-
-    }
-
-    .type {
-      font-size: 14px;
-      font-weight: bold;
-      font-style: italic;
-
-    }
-
-    .mean {
-      margin-top: 10px;
-      font-size: 18px;
-      line-height: 1;
-      font-weight: bolder;
-      color: #1d2a57;
-    }
-
-    img{
-      height: 40px;
-      width: 40px;
-    }
-
-    .container{
-
-      margin: 30px;
-    }
-
-    li a{
-
-      color: white !important;
-    }
-  </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>akdjgajdg</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/bootstrap.min.css' %}">
+    <style>
+        .form-control {
+            margin: 30px;
+        }
+        
+        textarea {
+            height: 150px;
+        }
+        
+        nav {
+            height: 67px;
+            text-transform: capitalize;
+        }
+        
+        .navbar {
+            background-color: #939393;
+        }
+        
+        .btn {
+            height: 40px;
+            margin: 30px;
+        }
+        
+        .cont {
+            border-top: 1px solid black;
+            height: auto;
+            margin: 20px;
+            width: auto;
+            /* border-bottom: 2px solid black; */
+            padding: 38px;
+        }
+        
+        .headword {
+            margin: 5px 0;
+            font-size: 36px;
+            color: black;
+            text-transform: capitalize;
+            font-weight: 400;
+        }
+        
+        .type {
+            font-size: 14px;
+            font-weight: bold;
+            font-style: italic;
+        }
+        
+        .mean {
+            margin-top: 10px;
+            font-size: 22px;
+            -webkit-text-emphasis-style: triangle;
+            line-height: 1;
+            text-align: justify;
+            font-weight: bolder;
+            color: #1d2a57;
+        }
+        
+        img {
+            height: 40px;
+            width: 40px;
+        }
+        
+        .container {
+            margin: 30px;
+        }
+        
+        li a {
+            color: white !important;
+        }
+        
+        .title {
+            margin: 40px;
+        }
+        
+        span {
+            color: green;
+            font-weight: 400;
+            font-size: 21px;
+        }
+    </style>
 
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="http://127.0.0.1:8000/Home"><img src="static/dictionary.png" alt=""></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg ">
+
+        <div class="container-fluid">
+            <a class="navbar-brand" href="http://127.0.0.1:8000/Home"><img src="static/dictionary.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/Home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="http://127.0.0.1:8000/show_dict">dictionary</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="http://127.0.0.1:8000/dict">add meaning</a>
-          </li>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/show_dict">dictionary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/dict">add meaning</a>
+                    </li>
 
 
 
 
-        </ul>
-        <div class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="headword">
-          <button class="btn btn-outline-success" type="submit" id="search">Search</button>
+                </ul>
+                <div class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="headword">
+                    <button class="btn btn-outline-success" type="submit" id="search">Search</button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </nav>
+    </nav>
+    <center>
+        <h1 class="title">Welcome to my Dictionary</h1>
+    </center>
 
+    {%block content%} {% endblock %}
 
-  {%block content%}
-  {% endblock %}
-  
 </body>
 
 </html>

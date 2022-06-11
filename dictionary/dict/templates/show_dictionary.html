@@ -1,12 +1,10 @@
-{% extends 'index.html' %}
+{% extends 'index.html' %} {%block content%}
 
-{%block content%}
- 
- <div id="box">
+<div id="box">
 
 
 
-  {% for i in data %}
+    {% for i in data %}
     <div class="cont" id="cont">
 
         <h1 class="headword"> {{i.key}}</h1>
@@ -15,59 +13,63 @@
 
         <p class="mean">{{i.mean}}</p>
 
-        <p class="sunonym">synonyms: {{i.synonym}}</p>
+        <p class="sunonym"><span> synonyms:</span> {{i.synonym}}</p>
 
-        <p class="antonym">Antonyms: {{i.antonym}}</p>
-        <p> Example: </p>
+        <p class="antonym"><span> Antonyms:</span> {{i.antonym}}</p>
+        <p> <span> Example:</span> </p>
         <p class="example"> {{i.example }}</p>
-       
+
     </div>
 
-    {% endfor %}  
+    {% endfor %}
 </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script>
-      let keys = document.getElementById('headword')
-      let cont = document.getElementById('cont')
-      let box = document.getElementById('box')
-      if (window.history.replaceState) {
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+    let keys = document.getElementById('headword')
+    let cont = document.getElementById('cont')
+    let box = document.getElementById('box')
+    if (window.history.replaceState) {
         window.history.replaceState(null, null, window.location.href);
-  
-      }
-  
-  
-  
-      $('#search').click(function () {
-  
-  
-  
-        my_data = { key: keys.value };
+
+    }
+
+
+
+    $('#search').click(function() {
+
+
+        my_data = {
+            key: keys.value
+        };
         $.ajax({
-  
-          url: "{% url 'save' %}",
-          method: "POST",
-          data: my_data,
-          success: function (data) {
-         
-            console.log(data.status)
-            box.innerHTML = `<div class="cont" id="cont">
+            url: "{% url 'save' %}",
+            method: "POST",
+            data: my_data,
+            success: function(data) {
+                let b = data.status.example.split("||")
+                let c = ""
+                for (let index = 0; index < b.length; index++) {
+
+                    c += `<p class = "example" ><b>${index}.</b>    ${b[index]} </p> `
+                }
+                console.log(data.status.example.split("||"))
+                box.innerHTML = `<div class="cont" id="cont">
               <h1 class="headword"> ${data.status.key}</h1>
               <p class="type">  ${data.status.type}</p>
               <p class="mean"> ${data.status.mean}</p>
               <p class="sunonym">synonyms: ${data.status.synonym}</p>
-              <p class="antonym">Antonyms:  ${data.status.antonym}</p
-              <p> Example: </p
-              <p class="example">  ${data.status.example}</p>
-              </div>`
-          }
-        })
-  
-      })
-  
-  
-  
-    </script>
+              <p class="antonym">Antonyms:  ${data.status.antonym}</p>
+              <p> Example: </p>${c}`
 
- 
-    {% endblock %}
+
+
+
+            }
+        })
+
+    })
+</script>
+
+
+{% endblock %}

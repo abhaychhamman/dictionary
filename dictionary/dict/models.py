@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Dictionary(models.Model):
-    key=models.CharField(max_length=40)
+    key=models.CharField(max_length=40,unique=True)
     type=models.CharField(max_length=40,default="")
     mean=models.CharField(max_length=200)
     synonym=models.CharField(max_length=40)
